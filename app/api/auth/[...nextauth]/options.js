@@ -17,6 +17,7 @@ export const options = {
                 return {
                   ...profile,
                     id: profile.sub,
+                    image: profile.picture
                 }
             },
             clientId: process.env.GOOGLE_CLIENT_ID,
@@ -24,14 +25,14 @@ export const options = {
         })
         // ...add more providers here
     ],
-    callbacks: {
-        async jwt({ token, user }){
-            if (user) token.role = user.role;
-            return token
-        },
-        async session({ session, token }){
-            if (session?.user) session.user.role = token.role
-            return session
-        }
-    }
+    // callbacks: {
+    //     async jwt({ token, user }){
+    //         if (user) token.role = user.role;
+    //         return token
+    //     },
+    //     async session({ session, token }){
+    //         if (session?.user) session.user.role = token.role
+    //         return session
+    //     }
+    // }
 }
