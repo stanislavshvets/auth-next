@@ -9,7 +9,7 @@ const DashboardLayout = async ({ children }) => {
     const session = await getServerSession(options);
 
     if(!session) {
-        redirect('/api/auth/singin?callbackUrl=/dashboard')
+        redirect('/api/auth/signin?callbackUrl=/dashboard')
     }
 
     const { user : {name, email, image} } = session;

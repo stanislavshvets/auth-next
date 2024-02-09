@@ -2,7 +2,15 @@
     width: 100%;
     padding: 1% 1%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+.link {
+    padding: 1rem 4rem;
+    max-height: 2vh;
+    background: aqua;
+    color: red;
+    border-radius: 0.5rem;
 }
 
 .info {
