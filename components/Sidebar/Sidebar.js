@@ -20,9 +20,11 @@ const Sidebar = (props) => {
             <nav className={css.sidebar}>
                 <div className={css.sidebar_top_wrapper}>
                     <Logo link={"/dashboard"} img={"./next.svg"}/>
+                    {/*todo add mini logo*/}
                     <Button ModalOpen={ModalOpen} setModalOpen={setModalOpen}/>
                 </div>
                 <div className={css.search__wrapper}>
+                    {/*todo norm img*/}
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="search-icon" role="img">
                         <title id="search-icon">Search</title>
                         <path
