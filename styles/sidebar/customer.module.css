@@ -1,0 +1,61 @@
+.sidebar__profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-direction: row;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    min-height: 2.5rem;
+    margin-top: auto;
+}
+
+.avatar__wrapper {
+    position: relative;
+    display: flex;
+}
+
+.avatar {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.avatar:hover {
+    border: 3px solid #408CF9;
+}
+
+.avatar__name {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    white-space: nowrap;
+}
+
+.user_name {
+    font-weight: 600;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.email {
+    color: #FFFFFF;
+    font-size: 0.8rem;
+}
+
+.logout {
+    margin-left: auto;
+}
+
+.logout svg {
+    color: #FA7575;
+}
+
+.collapsed .hide {
+    position: absolute;
+    visibility: hidden;
+}
