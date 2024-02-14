@@ -5,10 +5,10 @@ import Image from "next/image";
 
 const Button = (props) => {
 
-    const {ModalOpen, setModalOpen} = props;
+    const {ModalClose, setModalClose} = props;
 
     return (
-        <button className={`${css.expand_btn} ${ModalOpen ? css.rotate : ``}`} onClick={() => setModalOpen(prev=> !prev)}>
+        <button className={`${css.expand_btn} ${ModalClose ? css.rotate : ``}`} onClick={() => setModalClose(prev=> !prev)}>
            <Image src={arrow} alt={'arrow'} width={16} height={16} priority />
         </button>
     );

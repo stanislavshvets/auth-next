@@ -5,13 +5,13 @@ import css from "@/styles/sidebar/linklist.module.css";
 
 const DashboardLink = (props) => {
 
-    const {name, link, icon, setModalOpen} = props
+    const {name, link, icon, setModalClose} = props
 
     const pathname = usePathname()
 
     return (
         <li>
-            <Link href={link} title={name} className={`${css.tooltip} ${pathname === {link} ? `${css.active}` : ``}`} onClick={()=> setModalOpen(true)}>
+            <Link href={link} title={name} className={`${css.tooltip} ${pathname === {link} ? `${css.active}` : ``}`} onClick={()=> setModalClose(true)}>
                 <Image src={icon} alt={`${name} icon`} width={29} height={29} priority/>
                 <span className={`${css.link} ${css.hide}`}>{name}</span>
                 <span className={css.tooltip__content}>{name}</span>

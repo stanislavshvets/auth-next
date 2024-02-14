@@ -57,34 +57,6 @@
   visibility: hidden;
 }
 
-/*? search wrapper */
-.search__wrapper {
-  position: relative;
-}
-
-.search__wrapper input {
-  background-color: #2B2B2F;
-  min-height: 3rem;
-  width: 100%;
-  color: #FFFFFF;
-  border-radius: 0.75rem;
-  padding-left: 2.75rem;
-  font-size: 1.4rem;
-  border: none;
-}
-
-.search__wrapper svg {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 0.75rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  stroke: #FFFFFF;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
 /*? sidebar top */
 .sidebar_top_wrapper {
   display: flex;
