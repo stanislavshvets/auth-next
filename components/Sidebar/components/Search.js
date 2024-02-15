@@ -1,8 +1,7 @@
-import {useEffect, useState} from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import { magnifier } from "@/components/Sidebar/assets/svg"
 import css from "@/styles/sidebar/search.module.css"
-import pages from "@/components/Sidebar/pages";
 
 const Search = (props) => {
     const { ModalClose, setModalClose, message, setMessage } = props;

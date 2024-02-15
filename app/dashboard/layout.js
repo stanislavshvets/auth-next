@@ -1,9 +1,8 @@
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import {  redirect} from "next/navigation";
-import DashHeader from "@/components/DashHeader";
+import { redirect } from "next/navigation";
 import Sidebar from "@/components/Sidebar/Sidebar";
-import css from '@/styles/dash_layout.module.css'
+import css from '@/styles/DashboardPages/dashboard_layout.module.css'
 
 
 const DashboardLayout = async ({ children }) => {
@@ -16,16 +15,10 @@ const DashboardLayout = async ({ children }) => {
 
     const { user : {name, email, image} } = session;
 
-
     console.log('session header---->' , session);
-
-
-
-
 
     return (
         <main className={css.main}>
-            {/*<DashHeader name={name} mail={email} img={image}/>*/}
             <Sidebar name={name} mail={email} img={image}/>
            { children }
         </main>

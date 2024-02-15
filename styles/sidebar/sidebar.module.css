@@ -1,0 +1,37 @@
+.aside {
+  float: left;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 0.3% 0.3%;
+  min-width: 4rem;
+}
+
+.sidebar {
+  max-width: 21rem;
+  min-height: 50rem;
+  height: 100%;
+  padding: 1.5rem 1rem;
+  border-radius: 1.5rem;
+  user-select: none;
+  display: flex;
+  color: #FFFFFF;
+  flex-direction: column;
+  background-color: #141318;
+  transition: max-width 0.2s ease-in-out;
+}
+
+.close .sidebar {
+  max-width: 5rem;
+}
+
+.open {
+  min-width: 5rem;
+}
+
+.sidebar_top_wrapper {
+  display: flex;
+}
+
+

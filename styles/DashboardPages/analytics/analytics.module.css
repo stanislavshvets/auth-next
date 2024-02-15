@@ -1,10 +1,8 @@
 .main_div {
-    float: left;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 5rem;
-    min-height: 50rem;
-    background: red;
+    padding: 0.3% 0;
+    min-height: 100vh;
 }

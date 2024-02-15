@@ -1,0 +1,91 @@
+.li {
+    min-width: 3rem;
+}
+
+.li a:hover {
+    background-color: #2B2B2F;
+}
+
+.li a {
+    color: #FFFFFF;
+    width: 100%;
+    padding-left: 0.6rem;
+    font-size: 1.25rem;
+    display: flex;
+    gap: 0.75rem;
+    border-radius: 0.75rem;
+    justify-content: start;
+    align-items: center;
+    min-height: 3.25rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.link {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        width: 4rem;
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+.sidebar_links .active:hover {
+    background-color: #2B2B2F;
+}
+
+.active {
+    text-decoration: none;
+    background-color: #2B2B2F;
+    color: #FFFFFF;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip_content {
+    visibility: hidden;
+    background-color: #191919;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0.35rem 0.75rem;
+    position: absolute;
+    z-index: 2;
+    left: 4.5rem;
+}
+
+.tooltip_content::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-left: -9px;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #191919 transparent transparent;
+}
+
+.tooltip:hover .tooltip_content {
+    visibility: visible;
+}
+
+.tooltip:focus .tooltip_content {
+    visibility: visible;
+}
+
+.hide {
+    position: absolute;
+    visibility: hidden;
+}

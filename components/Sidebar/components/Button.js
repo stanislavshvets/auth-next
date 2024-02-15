@@ -1,7 +1,6 @@
-import React from 'react';
-import css from "@/styles/sidebar/button.module.css";
-import { arrow } from "@/components/Sidebar/assets/svg"
 import Image from "next/image";
+import { arrow } from "@/components/Sidebar/assets/svg"
+import css from "@/styles/sidebar/button.module.css";
 
 const Button = (props) => {
 

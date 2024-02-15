@@ -7,37 +7,34 @@ import Customer from "@/components/Sidebar/components/Customer";
 import Button from "@/components/Sidebar/components/Button";
 import LinkList from "@/components/Sidebar/components/Links/LinkList";
 import Search from "@/components/Sidebar/components/Search";
-import css from '@/styles/sidebar.module.css'
+import { next_logo, next_logo_mini } from "@/components/Sidebar/assets/svg"
+import css from '@/styles/sidebar/sidebar.module.css'
 
 const Sidebar = (props) => {
 
     const {img, mail, name} = props
 
-    const [ModalClose, setModalClose] = useState(false)
+    const [ModalClose, setModalClose] = useState(true)
     const [message, setMessage] = useState('');
 
     const filtered = pages.filter(page => {
         return page.name.toLowerCase().startsWith(message.toLowerCase())
     })
 
-    console.log('message--->' ,message);
-
-    console.log('filter---->' ,filtered);
-
     return (
-        <aside className={`${css.aside} ${ModalClose ? css.collapsed : ``}`}>
+        <aside className={`${css.aside} ${ModalClose ? css.close : css.open}`}>
             <nav className={css.sidebar}>
                 <div className={css.sidebar_top_wrapper}>
                     {ModalClose ?
-                        <Logo link={"/dashboard"} img={"./next-mini.svg"} width={30} height={30}/>
+                        <Logo link={"/dashboard"} img={next_logo_mini} width={30} height={30}/>
                         :
-                        <Logo link={"/dashboard"} img={"./next.svg"} width={140} height={100}/>
+                        <Logo link={"/dashboard"} img={next_logo} width={140} height={100}/>
                     }
                     <Button ModalClose={ModalClose} setModalClose={setModalClose}/>
                 </div>
                 <Search setModalClose={setModalClose} ModalClose={ModalClose} message={message} setMessage={setMessage}/>
-                <LinkList setModalClose={setModalClose} pages={filtered}/>
-               <Customer img={img} mail={mail} name={name}/>
+                <LinkList setModalClose={setModalClose} pages={filtered} ModalClose={ModalClose}/>
+                <Customer img={img} mail={mail} name={name} ModalClose={ModalClose}/>
             </nav>
         </aside>
     );
