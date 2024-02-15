@@ -5,12 +5,12 @@ import Image from "next/image";
 
 const Logo = (props) => {
 
-    const {link, img} = props
+    const {link, img, width, height} = props
 
     return (
-        <div className={css.sidebar_top}>
-            <Link href={link} className={css.logo__wrapper}>
-                <Image src={img} alt="Logo" className={css.logo_small} width={100} height={20}/>
+        <div className={css.logo_bar_top}>
+            <Link href={link} className={css.logo_wrapper}>
+                <Image src={img} alt="Logo" width={width} height={height}/>
             </Link>
         </div>
     );

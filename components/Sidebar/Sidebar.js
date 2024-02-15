@@ -1,6 +1,5 @@
 "use client"
 
-import css from '@/styles/sidebar.module.css'
 import { useState } from "react";
 import pages from "@/components/Sidebar/pages";
 import Logo from "@/components/Sidebar/components/Logo";
@@ -8,6 +7,7 @@ import Customer from "@/components/Sidebar/components/Customer";
 import Button from "@/components/Sidebar/components/Button";
 import LinkList from "@/components/Sidebar/components/Links/LinkList";
 import Search from "@/components/Sidebar/components/Search";
+import css from '@/styles/sidebar.module.css'
 
 const Sidebar = (props) => {
 
@@ -28,8 +28,11 @@ const Sidebar = (props) => {
         <aside className={`${css.aside} ${ModalClose ? css.collapsed : ``}`}>
             <nav className={css.sidebar}>
                 <div className={css.sidebar_top_wrapper}>
-                    <Logo link={"/dashboard"} img={"./next.svg"}/>
-                    {/*todo add mini logo*/}
+                    {ModalClose ?
+                        <Logo link={"/dashboard"} img={"./next-mini.svg"} width={30} height={30}/>
+                        :
+                        <Logo link={"/dashboard"} img={"./next.svg"} width={140} height={100}/>
+                    }
                     <Button ModalClose={ModalClose} setModalClose={setModalClose}/>
                 </div>
                 <Search setModalClose={setModalClose} ModalClose={ModalClose} message={message} setMessage={setMessage}/>
