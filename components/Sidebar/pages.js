@@ -15,8 +15,8 @@ const pages = [
     },
     {
         id: 3,
-        name: 'Analytics',
-        link: '/dashboard/analytics',
+        name: 'Users',
+        link: '/dashboard/users',
         icon: analytics
     },
     {
