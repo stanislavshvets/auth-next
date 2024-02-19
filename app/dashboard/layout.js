@@ -8,19 +8,19 @@ import { next_logo_mini } from '@/components/Sidebar/assets/svg'
 
 const DashboardLayout = async ({ children }) => {
 
-    // const session = await getServerSession(options);
-    //
-    // if(!session) {
-    //     redirect('/api/auth/signin?callbackUrl=/dashboard')
-    // }
-    //
-    // const { user : {name, email, image} } = session;
-    //
-    // console.log('session header---->' , session);
+    const session = await getServerSession(options);
+
+    if(!session) {
+        redirect('/api/auth/signin?callbackUrl=/dashboard')
+    }
+
+    const { user : {name, email, image} } = session;
+
+    console.log('session header---->' , session);
 
     return (
         <main className={css.main}>
-            <Sidebar name={"user"} mail={'email'} img={next_logo_mini}/>
+            <Sidebar name={name} mail={email} img={image}/>
            { children }
         </main>
     );
