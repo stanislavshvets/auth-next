@@ -1,4 +1,5 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import prisma from "@/utils/prismadb";
 
 export async function POST(request){
 
@@ -8,9 +9,17 @@ export async function POST(request){
 
         console.log("Request----->" , body)
 
-        if(!name || !phone || !email) return NextResponse.json({"message": "No DATA"})
+        if( !phone ) return NextResponse.json({"message": "No phone"})
 
-        return NextResponse.json(body)
+        const user = await prisma.user.create({
+            data: {
+                name,
+                phone,
+                email,
+            }
+        })
+
+        return NextResponse.json(user)
     }catch (error){
         return NextResponse.error()
     }
