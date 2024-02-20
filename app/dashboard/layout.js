@@ -3,8 +3,6 @@ import { options } from "@/app/api/auth/[...nextauth]/options";
 import { redirect } from "next/navigation";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import css from '@/styles/DashboardPages/dashboard_layout.module.css'
-import { next_logo_mini } from '@/components/Sidebar/assets/svg'
-
 
 const DashboardLayout = async ({ children }) => {
 

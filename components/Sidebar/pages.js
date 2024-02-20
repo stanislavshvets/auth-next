@@ -1,4 +1,4 @@
-import { dashboard, market, analytics, reports, industries, settings, notifications } from '@/components/Sidebar/assets/svg'
+import { dashboard, news, achievements, clients, industries, settings, notifications } from '@/components/Sidebar/assets/svg'
 
 const pages = [
     {
@@ -9,22 +9,23 @@ const pages = [
     },
     {
         id: 2,
-        name: 'Market Overview',
-        link: '/dashboard/market',
-        icon: market
+        name: 'News',
+        link: '/dashboard/news',
+        icon: news
     },
     {
         id: 3,
-        name: 'Users',
-        link: '/dashboard/users',
-        icon: analytics
+        name: 'Achievements',
+        link: '/dashboard/achievements',
+        icon: achievements
     },
     {
         id: 4,
-        name: 'Reports',
-        link: '/dashboard/reports',
-        icon: reports
-    },{
+        name: 'Clients',
+        link: '/dashboard/clients',
+        icon: clients
+    },
+    {
         id: 5,
         name: 'Industries',
         link: '/dashboard/industries',

@@ -1,5 +1,26 @@
 import { NextResponse } from "next/server";
 import prisma from "@/utils/prismadb";
+import {getServerSession} from "next-auth";
+import {options} from "@/app/api/auth/[...nextauth]/options";
+import {redirect} from "next/navigation";
+
+
+
+export async function GET(){
+    try{
+        // const session = await getServerSession(options);
+
+        // if(!session) return NextResponse.json({"message": "No session"})
+
+        const users = await prisma.user.findMany()
+
+        console.log("USERS----->", users)
+
+        return NextResponse.json(users)
+    }catch (error){
+        return NextResponse.error()
+    }
+}
 
 export async function POST(request){
 

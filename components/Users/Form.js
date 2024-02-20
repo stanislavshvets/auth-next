@@ -8,22 +8,18 @@ const Form = () => {
     const { register, handleSubmit, watch, formState: { errors },} = useForm()
 
     const onSubmit = async (data) => {
+
         const {name, phone, email } = data
+
         try{
             await axios.post("/api/users", {
                 name,
                 phone,
                 email
             })
-
         }catch (error){
             console.log("error!!!", error)
         }
-        console.log(data)
-
-
-
-
     }
 
     return (
