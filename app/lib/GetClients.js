@@ -1,11 +1,8 @@
-import { NextResponse } from "next/server";
-import axios from "axios";
-
 export async function GetClients() {
     try{
-        const data = await axios.get("/api/users")
+        const res = await fetch("http://localhost:3000/api/users")
 
-        return NextResponse.json(data)
+        return await res.json()
     }catch (error){
         console.log("error!!!", error)
     }

@@ -28,7 +28,7 @@ const Form = () => {
                 <input  {...register("name")} />
             </label>
             <label> Phone
-                <input {...register("phone", { required: true })} />
+                <input {...register("phone" )} />
             </label>
             <label> Email
                 <input {...register("email", { required: true })} />

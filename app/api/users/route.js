@@ -2,9 +2,6 @@ import { NextResponse } from "next/server";
 import prisma from "@/utils/prismadb";
 import {getServerSession} from "next-auth";
 import {options} from "@/app/api/auth/[...nextauth]/options";
-import {redirect} from "next/navigation";
-
-
 
 export async function GET(){
     try{
@@ -16,7 +13,7 @@ export async function GET(){
 
         console.log("USERS----->", users)
 
-        return NextResponse.json(users)
+        return Response.json(users)
     }catch (error){
         return NextResponse.error()
     }
@@ -44,6 +41,4 @@ export async function POST(request){
     }catch (error){
         return NextResponse.error()
     }
-
-
 }
