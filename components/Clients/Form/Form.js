@@ -24,21 +24,21 @@ const Form = () => {
     }
 
     return (
-        <div className={css.main}>
-            <h1>Add new Client</h1>
+        <section className={css.main}>
+            <h1 className={css.h1}>ADD NEW CLIENT</h1>
             <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
 
-                <input className={css.input} placeholder={"Name"} {...register("name")} />
+                     <input className={css.input} placeholder={"Name"} {...register("name", { required: true })} />
 
-                <input className={css.input} placeholder={"Phone"} {...register("phone" )} />
+                     <input className={css.input} placeholder={"Phone"} {...register("phone", { required: true })} />
 
-                <input className={css.input} placeholder={"Email"} {...register("email", { required: true })} />
+                     <input className={css.input} placeholder={"Email"} {...register("email")} />
 
-                {errors.exampleRequired && <span>This field is required</span>}
+                     {errors.exampleRequired && <span>This field is required</span>}
 
                 <button className={css.button} type="submit">ADD</button>
             </form>
-        </div>
+        </section>
     );
 };
 

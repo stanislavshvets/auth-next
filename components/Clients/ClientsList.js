@@ -1,4 +1,5 @@
 import { GetClients } from "@/app/lib/GetClients";
+import css from "@/styles/DashboardPages/clients/clientslist.module.css"
 
 const ClientsList = async () => {
 
@@ -7,9 +8,12 @@ const ClientsList = async () => {
     console.log("DATA CLIENTS---->",data);
 
     return (
-        <div>
-            <h1>Clients</h1>
-        </div>
+        <section className={css.main}>
+            <h1 className={css.h1}>CLIENTS LIST</h1>
+            <div> className={css.clients_div}>
+
+            </div>
+        </section>
     );
 };
 

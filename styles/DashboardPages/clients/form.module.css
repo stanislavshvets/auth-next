@@ -2,7 +2,7 @@
     width: 90%;
 }
 
-.form{
+.form {
     margin: 1rem 0;
     padding: 5rem 2rem;
     display: flex;
@@ -12,8 +12,14 @@
     border-radius: 0.75rem;
 }
 
+.h1 {
+    font-size: 1.5rem;
+}
+
+
 .input {
-    width: 24rem;
+    margin: 0.2rem 0.2rem;
+    flex: 1 0 10rem;
     border: none;
     outline: none;
     border-radius: 0.75rem;
@@ -30,9 +36,18 @@
     -0.5rem -0.5rem 50px #ffffff;
 }
 
+.input_error {
+    background-color: white;
+    transform: scale(1.01);
+    box-shadow: 0.5rem 0.5rem 50px red,
+    -0.5rem -0.5rem 50px #ffffff;
+}
+
 .button {
     width: 15rem;
     padding: 1em 2em;
+    margin: 0.2rem 0.2rem;
+    flex: 1 0 10rem;
     border: unset;
     border-radius: 15px;
     color: #212121;
@@ -45,6 +60,7 @@
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     transition: all 250ms;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .button::before {
