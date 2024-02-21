@@ -1,9 +1,21 @@
-export async function GetClients() {
-    try{
-        const res = await fetch("http://localhost:3000/api/users")
+import { getServerSession } from "next-auth";
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import prisma from "@/utils/prismadb";
 
-        return await res.json()
-    }catch (error){
-        console.log("error!!!", error)
+export const GetClients = async () => {
+
+    try {
+        // const session = await getServerSession(options);
+        //
+        // if(!session) new Error('No session')
+
+        const users = await prisma.user.findMany()
+
+        console.log('Data fetch completed after 3 seconds.');
+
+        return users
+    } catch (error) {
+        console.error('Database Error:', error);
+        throw new Error('Failed to fetch revenue data.');
     }
 }

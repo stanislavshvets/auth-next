@@ -14,6 +14,7 @@ const DashboardLink = (props) => {
 
     return (
         <li className={css.li}>
+                                                     {/*Через то шо відбувається ререндер не працює pathname === {link}*/}
             <Link href={link} title={name} className={`${ModalClose ? css.tooltip : ''} ${pathname === {link} ? `${css.active}` : ``}`} onClick={()=> setModalClose(true)}>
                 <Image src={icon} alt={`${name} icon`} width={29} height={29} priority/>
                 <span className={ModalClose ? css.hide : css.link}>{name}</span>

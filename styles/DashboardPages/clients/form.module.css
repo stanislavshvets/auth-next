@@ -1,0 +1,76 @@
+.main {
+    width: 90%;
+}
+
+.form{
+    margin: 1rem 0;
+    padding: 5rem 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border: 2px solid #17171a;;
+    border-radius: 0.75rem;
+}
+
+.input {
+    width: 24rem;
+    border: none;
+    outline: none;
+    border-radius: 0.75rem;
+    padding: 1em 2em;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+    transition: 300ms ease-in-out;
+}
+
+.input:focus {
+    background-color: white;
+    transform: scale(1.01);
+    box-shadow: 0.5rem 0.5rem 50px #969696,
+    -0.5rem -0.5rem 50px #ffffff;
+}
+
+.button {
+    width: 15rem;
+    padding: 1em 2em;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #e8e8e8;
+    position: relative;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #212121;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+}
+
+.button:hover {
+    color: #e8e8e8;
+}
+
+.button:hover::before {
+    width: 100%;
+}
+
+.button:active{
+    transform: scale(0.95);
+    transition-duration: 0.3s;
+}
