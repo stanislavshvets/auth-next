@@ -3,13 +3,18 @@
 import {useForm} from "react-hook-form";
 import axios from "axios";
 import css from '@/styles/DashboardPages/clients/form.module.css'
+import {useState} from "react";
+import ConfirmModal from "@/components/Clients/Form/ConfirmModal";
 
 const Form = () => {
+
+    const [newClient, setNewClient] = useState()
+    const [modalOpen, setModalOpen] = useState(false)
 
     const { register,
         handleSubmit,
         reset,
-        formState: { errors },} = useForm()
+        formState: { errors }} = useForm()
 
     const onSubmit = async (data) => {
 
@@ -21,7 +26,9 @@ const Form = () => {
                 phone,
                 email
             }).then((res) => {
-                console.log("response---->", res)
+                (res.status === 200) ? setModalOpen(true) : null
+                console.log("response---->", res.status)
+                setNewClient(res.data)
             })
             reset()
         }catch (error){
@@ -29,10 +36,15 @@ const Form = () => {
         }
     }
 
+    console.log("newClient---->" ,newClient)
+    console.log("modalOpen----->",modalOpen)
+
     return (
         <section className={css.main}>
             <h1 className={css.h1}>ADD NEW CLIENT</h1>
-            <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+            {modalOpen ? <ConfirmModal newClient={newClient} Close={setModalOpen}/> :
+
+                <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
 
                      <input className={css.input} placeholder={"Name"} {...register("name", { required: true })} />
 
@@ -43,7 +55,7 @@ const Form = () => {
                      {errors.exampleRequired && <span>This field is required</span>}
 
                 <button className={css.button} type="submit">ADD</button>
-            </form>
+            </form>}
         </section>
     );
 };

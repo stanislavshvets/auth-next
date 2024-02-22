@@ -1,7 +1,5 @@
 import css from '@/styles/DashboardPages/clients/client.module.css'
-const Client = (props) => {
-
-    const { id, name, phone, email } = props
+const Client = ({ id, name, phone, email }) => {
 
     return (
         <div className={css.card}>

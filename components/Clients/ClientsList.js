@@ -6,8 +6,6 @@ const ClientsList = async () => {
 
     const data = await GetClients()
 
-    console.log("DATA CLIENTS---->",data);
-
     return (
         <>
         <div className={css.h2_wrapper}>
