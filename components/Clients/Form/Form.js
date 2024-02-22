@@ -6,7 +6,10 @@ import css from '@/styles/DashboardPages/clients/form.module.css'
 
 const Form = () => {
 
-    const { register, handleSubmit, watch, formState: { errors },} = useForm()
+    const { register,
+        handleSubmit,
+        reset,
+        formState: { errors },} = useForm()
 
     const onSubmit = async (data) => {
 
@@ -17,7 +20,10 @@ const Form = () => {
                 name,
                 phone,
                 email
+            }).then((res) => {
+                console.log("response---->", res)
             })
+            reset()
         }catch (error){
             console.log("error!!!", error)
         }

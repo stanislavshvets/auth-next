@@ -1,14 +1,52 @@
-.main {
+.h2_wrapper {
     width: 90%;
+    margin-bottom: 1rem;
 }
 
-.h1 {
+.h2 {
     font-size: 1.5rem;
+    align-self: start;
+}
+
+.main {
+    width: 90%;
+    height: 63vh;
+    border: 2px solid #17171a;;
+    border-radius: 0.75rem;
 }
 
 .clients_div {
+
     margin: 1rem 0;
-    padding: 5rem 2rem;
-    border: 2px solid #17171a;;
-    border-radius: 0.75rem;
+    padding: 2rem 2rem;
+}
+
+.div_head {
+    width: 100%;
+    padding: 0.3rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 2px #141318;
+    font-size: 1rem;
+}
+
+.clients_list {
+    height: 52vh;
+    margin: 0.5rem 0;
+    padding: 0 0.5rem;
+    overflow-y: scroll;
+}
+
+.clients_list::-webkit-scrollbar {
+    width: 0.4rem;
+}
+
+.clients_list::-webkit-scrollbar-thumb {
+    background: #141318;;
+    border-radius: 1.5rem;
+}
+
+.clients_list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 1.5rem;
 }
