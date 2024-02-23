@@ -30,9 +30,20 @@ export async function POST(request){
         const body = await request.json()
         const { name, phone, email } = body
 
+        const result = await prisma.user.findUnique({
+            where: {
+                phone: phone,
+                email: email,
+            },
+        })
+
+        if(result) return NextResponse.json({message: "User already exists"}, {status: 403})
+
+        console.log("RESULT----->", result )
+
         console.log("Request----->" , body)
 
-        if( !phone ) return NextResponse.json({"message": "No phone"})
+        if( phone === "" || email === "" ) return NextResponse.json({"message": "No phone"}, {status: 400})
 
         const user = await prisma.user.create({
             data: {
@@ -42,7 +53,7 @@ export async function POST(request){
             }
         })
 
-        return NextResponse.json(user)
+        return NextResponse.json({ data: user }, { status: 201 })
     }catch (error){
         return NextResponse.error()
     }

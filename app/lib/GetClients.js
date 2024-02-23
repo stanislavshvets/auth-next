@@ -16,6 +16,6 @@ export const GetClients = async () => {
         return users
     } catch (error) {
         console.error('Database Error:', error);
-        throw new Error('Failed to fetch revenue data.');
+        // throw new Error('Failed to fetch revenue data.');
     }
 }

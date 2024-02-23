@@ -2,9 +2,7 @@ import { GetClients } from "@/app/lib/GetClients";
 import css from "@/styles/DashboardPages/clients/clientslist.module.css"
 import Client from "@/components/Clients/Client";
 
-const ClientsList = async () => {
-
-    const data = await GetClients()
+const ClientsList = async ({data}) => {
 
     return (
         <>
