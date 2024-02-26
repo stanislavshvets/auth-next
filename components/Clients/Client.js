@@ -5,10 +5,10 @@ const Client = ({ id, name, phone, email }) => {
     return (
         <div className={css.card}>
             <p>{id}</p>
-            <p>{name}</p>
+            {name && <p>{name}</p>}
             <p>{phone}</p>
-            <p>{email}</p>
-            <DelButton id={id} name={name}/>
+            {email && <p>{email}</p>}
+            <DelButton id={id} name={name} phone={phone}/>
         </div>
     );
 };

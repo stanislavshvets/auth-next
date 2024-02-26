@@ -52,9 +52,9 @@ const Form = () => {
 
                 <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
 
-                     <input className={css.input} placeholder={"Name"} {...register("name", { required: true })} />
+                     <input className={css.input} placeholder={"Name"} {...register("name")} />
 
-                     <input className={css.input} placeholder={"Phone"} {...register("phone")} />
+                     <input className={css.input} placeholder={"Phone"} {...register("phone", { required: true })} />
 
                      <input className={css.input} placeholder={"Email"} {...register("email")} />
 

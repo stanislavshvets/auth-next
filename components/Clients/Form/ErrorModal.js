@@ -1,4 +1,3 @@
-import {useEffect, useState} from "react";
 import css from "@/styles/DashboardPages/clients/error.module.css";
 
 const ErrorModal = ({Close, error}) => {
@@ -7,7 +6,6 @@ const ErrorModal = ({Close, error}) => {
         <div className={css.wrapper}>
             <h2 className={css.h2}>ERROR</h2>
             <div className={css.client_wrapper}>
-
                 <p className={css.p}>
                     CODE: <span className={css.error}>{error.response.status.toString()}</span> MESSAGE: {
                     (error.response.status >= 401 && error.response.status !== 403) ?

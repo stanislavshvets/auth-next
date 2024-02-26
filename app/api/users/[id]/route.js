@@ -9,14 +9,19 @@ export async function DELETE(request) {
         if(!id)
             return NextResponse.json({message: "No id"}, {status: 404})
 
-        const deleteUser = await prisma.user.delete({
+        const result = await prisma.user.findUnique({
             where: {
                 id: id,
             },
         })
 
-        if (!deleteUser)
-            return NextResponse.json({message: "No User"}, {status: 404})
+        if(!result) return NextResponse.json({message: "No User"}, {status: 404})
+
+        const deleteUser = await prisma.user.delete({
+            where: {
+                id: id,
+            },
+        })
 
         return NextResponse.json(deleteUser, {status: 201})
     } catch (error) {
