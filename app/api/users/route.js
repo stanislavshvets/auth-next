@@ -39,11 +39,7 @@ export async function POST(request){
 
         if(result) return NextResponse.json({message: "User already exists"}, {status: 403})
 
-        console.log("RESULT----->", result )
-
-        console.log("Request----->" , body)
-
-        if( phone === "" || email === "" ) return NextResponse.json({"message": "No phone"}, {status: 400})
+        if( phone === "" ) return NextResponse.json({message: "No phone"}, {status: 400})
 
         const user = await prisma.user.create({
             data: {

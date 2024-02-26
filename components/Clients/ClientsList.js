@@ -1,4 +1,3 @@
-import { GetClients } from "@/app/lib/GetClients";
 import css from "@/styles/DashboardPages/clients/clientslist.module.css"
 import Client from "@/components/Clients/Client";
 
@@ -16,6 +15,7 @@ const ClientsList = async ({data}) => {
                     <p>NAME</p>
                     <p>PHONE</p>
                     <p>EMAIL</p>
+                    <div></div>
                 </div>
                 <div className={css.clients_list}>
                     {data.map((client) =>

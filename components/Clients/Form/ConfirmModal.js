@@ -12,17 +12,17 @@ const ConfirmModal = ({Close, newClient}) => {
         Close(false)
     }
 
-    // useEffect(() => {
-    //     if(isSecondsLeft <= 0) {
-    //         closeForm()
-    //         return
-    //     }
-    //     const timer = setInterval(() => {
-    //         isSetSecondsLeft(isSecondsLeft - 1);
-    //     }, 1000)
-    //
-    //     return () => clearInterval(timer)
-    // }, [isSecondsLeft]);
+    useEffect(() => {
+        if(isSecondsLeft <= 0) {
+            closeForm()
+            return
+        }
+        const timer = setInterval(() => {
+            isSetSecondsLeft(isSecondsLeft - 1);
+        }, 1000)
+
+        return () => clearInterval(timer)
+    }, [isSecondsLeft]);
 
     return (
         <div className={css.wrapper}>
