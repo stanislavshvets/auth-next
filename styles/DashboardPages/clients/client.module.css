@@ -12,3 +12,8 @@
     transition: 300ms ease-in-out;
     font-size: 0.9rem;
 }
+
+.btns {
+    display: flex;
+    justify-content: center;
+}

@@ -1,4 +1,4 @@
-import css from "@/styles/DashboardPages/clients/deletedClient.module.css";
+import css from "@/styles/DashboardPages/clients/deleteBTN/deletedClient.module.css";
 
 const DeletedClient = ({deleted, closeModal}) => {
 

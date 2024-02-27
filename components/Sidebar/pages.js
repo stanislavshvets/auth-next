@@ -1,4 +1,4 @@
-import { dashboard, news, achievements, clients, industries, settings, notifications } from '@/components/Sidebar/assets/svg'
+import { dashboard, news, achievements, clients, industries, settings, notifications } from '@/components/assets/svg'
 
 const pages = [
     {

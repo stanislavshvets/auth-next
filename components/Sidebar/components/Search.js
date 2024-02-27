@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
-import { magnifier } from "@/components/Sidebar/assets/svg"
+import { magnifier } from "@/components/assets/svg"
 import css from "@/styles/sidebar/search.module.css"
 
 const Search = (props) => {

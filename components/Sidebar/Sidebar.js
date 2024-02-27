@@ -7,7 +7,7 @@ import Customer from "@/components/Sidebar/components/Customer";
 import Button from "@/components/Sidebar/components/Button";
 import LinkList from "@/components/Sidebar/components/Links/LinkList";
 import Search from "@/components/Sidebar/components/Search";
-import { next_logo, next_logo_mini } from "@/components/Sidebar/assets/svg"
+import { next_logo, next_logo_mini } from "@/components/assets/svg"
 import css from '@/styles/sidebar/sidebar.module.css'
 
 const Sidebar = (props) => {

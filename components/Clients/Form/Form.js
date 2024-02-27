@@ -14,13 +14,15 @@ const Form = () => {
     const [error, setError] = useState()
     const [errorOpen, setErrorOpen] = useState(false)
 
-
     const { register,
         handleSubmit,
         reset,
         formState: { errors }} = useForm()
 
+
     const onSubmit = async (data) => {
+
+
 
         const {name, phone, email } = data
 

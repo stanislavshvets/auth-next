@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { arrow } from "@/components/Sidebar/assets/svg"
+import { arrow } from "@/components/assets/svg"
 import css from "@/styles/sidebar/button.module.css";
 
 const Button = (props) => {

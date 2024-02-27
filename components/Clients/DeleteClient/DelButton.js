@@ -3,11 +3,11 @@
 import axios from "axios";
 import Image from "next/image";
 import {useState} from "react";
-import DelModal from "@/components/Clients/DelModal";
-import DeletedClient from "@/components/Clients/DeletedClient";
-import ErrorModal from "@/components/Clients/ErrorModal";
-import { bin } from "@/components//Sidebar/assets/svg"
-import css from '@/styles/DashboardPages/clients/delbutton.module.css'
+import DelModal from "@/components/Clients/DeleteClient/DelModal";
+import DeletedClient from "@/components/Clients/DeleteClient/DeletedClient";
+import ErrorModal from "@/components/Clients/DeleteClient/ErrorModal";
+import { bin } from "@/components/assets/svg"
+import css from '@/styles/DashboardPages/clients/deleteBTN/delbutton.module.css'
 
 
 const DelButton = ({id, name, phone}) => {
@@ -25,7 +25,6 @@ const DelButton = ({id, name, phone}) => {
                     setDeletedClient(res.data)
                     setModalOpen(false)
                     setModalConfirmOpen(true)
-                    console.log("RESP---->",res)
             })
         }catch (error){
             setError(error)
@@ -33,9 +32,6 @@ const DelButton = ({id, name, phone}) => {
             setErrorOpen(true)
         }
     }
-
-    console.log('deletedUser---->',deletedClient);
-    console.log("ERROR---->",error);
 
     return (
         <>
@@ -46,7 +42,6 @@ const DelButton = ({id, name, phone}) => {
                 <Image src={bin} alt={'bin'} width={15} height={15} />
             </button>
         </>
-
     );
 };
 

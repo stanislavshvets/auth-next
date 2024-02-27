@@ -1,0 +1,153 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    background: black;
+    opacity: 0.5;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #F23D3D;
+    background: white;
+    padding: 1.5% 3%;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+}
+
+.h2{
+    font-size: 1.5rem;
+}
+
+.info {
+    margin: 0.8rem 0;
+}
+
+.p {
+    font-size: 1rem;
+}
+
+.props {
+    font-weight: bold;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.apply_btn {
+    border: none;
+    display: block;
+    position: relative;
+    padding: 0.7em 2.4em;
+    font-size: 1.2rem;
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    color: #df2626;
+    z-index: 5;
+    border-radius: 1.3rem;
+}
+
+.apply_btn > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+    border: 0.2rem solid #df2626;
+    border-radius: 1.3rem;
+}
+
+.apply_btn > span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8%;
+    height: 500%;
+    background: #FFFFFF;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-60deg);
+    transition: all 0.3s;
+}
+
+.apply_btn:hover span::before {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    width: 100%;
+    background: #df2626;
+}
+
+.apply_btn:hover {
+    color: white;
+}
+
+.apply_btn:active span::before {
+    background: #df2626;
+}
+
+.cancel_btn {
+    border: none;
+    display: block;
+    position: relative;
+    padding: 0.7em 2.4em;
+    font-size: 1.2rem;
+    background: transparent;
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+    color: #5cf311;
+    z-index: 5;
+    border-radius: 1.3rem;
+}
+
+.cancel_btn > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -1;
+    border: 0.2rem solid #5cf311;
+    border-radius: 1.3rem;
+}
+
+.cancel_btn > span::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8%;
+    height: 500%;
+    background: #FFFFFF;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-60deg);
+    transition: all 0.3s;
+}
+
+.cancel_btn:hover span::before {
+    transform: translate(-50%, -50%) rotate(-90deg);
+    width: 100%;
+    background: #5cf311;
+}
+
+.cancel_btn:hover {
+    color: white;
+}
+
+.cancel_btn:active span::before {
+    background: #5cf311;
+}

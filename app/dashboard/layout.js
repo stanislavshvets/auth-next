@@ -18,7 +18,7 @@ const DashboardLayout = async ({ children }) => {
 
     return (
         <main className={css.main}>
-            <Sidebar name={"name"} mail={"email"} img={'/next-mini.svg'}/>
+            <Sidebar name={"name"} mail={"email"} img={"/next-mini.svg"}/>
            { children }
         </main>
     );

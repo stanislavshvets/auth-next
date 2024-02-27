@@ -1,4 +1,4 @@
-import css from '@/styles/DashboardPages/clients/delmodal.module.css'
+import css from '@/styles/DashboardPages/clients/deleteBTN/delmodal.module.css'
 
 const DelModal = ({id, name, phone, closeModal, deleteClient}) => {
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { logout } from "@/components/Sidebar/assets/svg"
+import { logout } from "@/components/assets/svg"
 import css from "@/styles/sidebar/customer.module.css";
 
 const Customer = (props) => {
