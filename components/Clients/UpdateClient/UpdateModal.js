@@ -2,12 +2,14 @@
 
 import axios from "axios";
 import {useForm} from "react-hook-form";
+import {useEffect} from "react";
 import css from "@/styles/DashboardPages/clients/UpdateBTN/upmodal.module.css";
 
 const UpdateModal = ({id, name, phone, email, closeModal, updateClient}) => {
 
     const { register, watch,
         handleSubmit,
+        setValue,
         reset,
         formState: { errors }} = useForm()
 
@@ -15,9 +17,16 @@ const UpdateModal = ({id, name, phone, email, closeModal, updateClient}) => {
     const watchPhoneField = watch("phone")
     const watchEmailField = watch("email")
 
+    useEffect(() => {
+        setValue('name', name)
+        setValue('phone', phone)
+        setValue('email', email)
+    }, [])
+
+
     const onSubmit = async (data) => {
-        console.log(data);
-        return data
+        data.id = id.toString()
+        updateClient(data)
     }
 
     return (
@@ -56,7 +65,7 @@ const UpdateModal = ({id, name, phone, email, closeModal, updateClient}) => {
                         </label>
                     </div>
                     <div className={css.btns}>
-                        <button className={css.apply_btn} type="submit" onClick={() => updateClient(id.toString())}>UPDATE<span></span></button>
+                        <button className={css.apply_btn} type="submit">UPDATE<span></span></button>
                         <button className={css.cancel_btn} onClick={() => closeModal(false)}>CANCEL<span></span></button>
                     </div>
                 </form>
