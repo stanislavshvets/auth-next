@@ -13,49 +13,76 @@ export async function POST(request){
 
         const { name, phone, email } = body
 
-        const resultphone = await prisma.user.findUnique({
+        const existingUser = await prisma.user.findFirst({
             where: {
-                phone: phone,
+                OR: [
+                    { phone: phone },
+                    { email: email }
+                ]
             },
             select: {
-                id: true
-            }
-        }).then(res => {
-            if (res === null) {
-                return false;
-            } else {
-                if (res.id === +userid) {
-                    return false;
-                } else {
-                    return res.id;
-                }
+                id: true,
+                phone: true,
+                email: true
             }
         });
 
-        if(resultphone)
-            return NextResponse.json({"message": `User id: ${resultphone}, with this phone, already exists`}, {status: 403})
+        console.log("RESPONSE--->", existingUser)
 
-        const resultemail = await prisma.user.findFirst({
-            where: {
-                email: email,
-            },
-            select: {
-                id: true
+        if (existingUser) {
+            let errorMessage = "";
+            if (existingUser.phone === phone) {
+                errorMessage = `User id: ${existingUser.id}, with this phone, already exists`;
+            } else if (existingUser.email === email) {
+                errorMessage = `User id: ${existingUser.id}, with this email, already exists`;
             }
-        }).then(res => {
-            if (res === null) {
-                return false;
-            } else {
-                if (res.id === +userid) {
-                    return false;
-                } else {
-                    return res.id;
-                }
-            }
-        });
+            return NextResponse.json({ "message": errorMessage }, { status: 403 });
+        }
 
-        if(resultemail)
-            return NextResponse.json({"message": `User id: ${resultemail}, with this phone, already exists`}, {status: 403})
+
+        // const resultphone = await prisma.user.findUnique({
+        //     where: {
+        //         phone: phone,
+        //     },
+        //     select: {
+        //         id: true
+        //     }
+        // }).then(res => {
+        //     if (res === null) {
+        //         return false;
+        //     } else {
+        //         if (res.id === +userid) {
+        //             return false;
+        //         } else {
+        //             return res.id;
+        //         }
+        //     }
+        // });
+
+        // if(resultphone)
+        //     return NextResponse.json({"message": `User id: ${resultphone}, with this phone, already exists`}, {status: 403})
+        //
+        // const resultemail = await prisma.user.findFirst({
+        //     where: {
+        //         email: email,
+        //     },
+        //     select: {
+        //         id: true
+        //     }
+        // }).then(res => {
+        //     if (res === null) {
+        //         return false;
+        //     } else {
+        //         if (res.id === +userid) {
+        //             return false;
+        //         } else {
+        //             return res.id;
+        //         }
+        //     }
+        // });
+        //
+        // if(resultemail)
+        //     return NextResponse.json({"message": `User id: ${resultemail}, with this email, already exists`}, {status: 403})
 
         if( phone === "" )
             return NextResponse.json({"message": "No phone"}, {status: 400})
