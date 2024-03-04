@@ -1,5 +1,5 @@
 import css from "@/styles/DashboardPages/news/news.module.css";
-import EditingForm from "@/components/News/EditingForm";
+import EditingForm from "@/components/News/EditingForm/EditingForm";
 import NewsBlock from "@/components/News/NewsBlock";
 
 const News = () => {

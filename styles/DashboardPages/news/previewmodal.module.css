@@ -1,0 +1,39 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 48.7%;
+    width: 50%;
+    height: 100vh;
+    z-index: 3;
+    background: black;
+    opacity: 0.5;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 74%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    min-height: 45vh;
+    max-height: 85vh;
+    border: 2px solid #F23D3D;
+    background: white;
+    padding: 1.5% 3%;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    overflow: scroll;
+}
+
+.h2{
+    font-size: 1.5rem;
+}
+
+.info {
+    margin-top: 0.8rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
