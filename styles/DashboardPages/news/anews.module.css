@@ -1,0 +1,21 @@
+.main_block {
+    width: 85%;
+    margin-top: 0.8rem;
+    border: 2px solid #F23D3D;
+    background: white;
+    padding: 1.5% 3%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+}
+
+.h2{
+    font-size: 1.5rem;
+}
+
+.info {
+    margin-top: 0.8rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

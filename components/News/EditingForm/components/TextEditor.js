@@ -1,25 +1,20 @@
 "use client"
 
-import React, {  useState } from "react";
-import ReactQuill, {Quill} from 'react-quill'
+import { useState } from "react";
+import ReactQuill from 'react-quill'
 import 'quill/dist/quill.snow.css'
 import css from '@/styles/DashboardPages/news/texteditor.module.css'
 import PreviewModal from "@/components/News/EditingForm/components/PreviewModal";
+import dynamic from "next/dynamic";
 
-const TextEditor = () => {
+const TextEditor = ({title, body, setTitle, setBody, postData}) => {
 
-    const [title, setTitle] = useState('')
-    const [body, setBody] = useState('')
-    const [openModal, setOpenModal] = useState(true)
-
-    console.log("TITLE---->", title)
-    console.log("BODY---->", body)
+    // const ReactQuill =  dynamic(
+    //     () => import('react-quill'));
 
 
-    const quill = new Quill('#editor', {
-        modules: { toolbar: true },
-        theme: 'snow'
-    });
+    const [openModal, setOpenModal] = useState(false)
+
     let modules = {
         toolbar: [
             [{ size: ["small", false, "large", "huge"] }],
@@ -74,13 +69,14 @@ const TextEditor = () => {
                     theme="snow"
                     modules={modules}
                     formats={formats}
-                    placeholder="write your content ...."
+                    placeholder={'enter yor text...'}
                     onChange={GetBody}
                 >
                 </ReactQuill>
             </div>
         </div>
             <button onClick={() => setOpenModal(true)}>Show Preview</button>
+            <button onClick={() => postData(title, body)}>Post Data</button>
         </>
     );
 

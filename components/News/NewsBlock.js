@@ -1,9 +1,16 @@
 import css from '@/styles/DashboardPages/news/newsblock.module.css'
+import ANews from "@/components/News/ANews";
 
-const NewsBlock = () => {
+const NewsBlock = async ({data}) => {
+
+    console.log("FROM NEWSBLOCK---->",data);
+
     return (
         <div className={css.mainblock}>
-            <h1>NewsBlock</h1>
+            
+                {data.map((item) =>
+                    <ANews key={item.id} title={item.title} body={item.body} date={item.date.toString()} /> )}
+
         </div>
     );
 };

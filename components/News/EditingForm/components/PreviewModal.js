@@ -1,4 +1,5 @@
-import React from 'react';
+"use client"
+
 import css from "@/styles/DashboardPages/news/previewmodal.module.css";
 import { Remarkable } from 'remarkable';
 import 'quill/dist/quill.snow.css'
@@ -24,9 +25,9 @@ const PreviewModal = ({title, body, closeModal}) => {
             <div className={css.modal} >
                 <h2 className={css.h2}>{title}</h2>
                 <div className={css.info} dangerouslySetInnerHTML={markup}>
-
                 </div>
             </div>
+            <button className={css.btn} onClick={()=>closeModal(false)}>X</button>
         </>
     );
 };

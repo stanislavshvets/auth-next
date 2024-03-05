@@ -16,3 +16,10 @@ model User {
   phone String  @unique
   email String?
 }
+
+model News {
+  id    Int      @id @default(autoincrement())
+  title String
+  body  String
+  date  DateTime @default(now())
+}

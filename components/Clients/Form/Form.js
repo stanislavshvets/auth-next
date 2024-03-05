@@ -22,8 +22,6 @@ const Form = () => {
 
     const onSubmit = async (data) => {
 
-
-
         const {name, phone, email } = data
 
         try{

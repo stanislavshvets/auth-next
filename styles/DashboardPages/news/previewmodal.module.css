@@ -24,7 +24,21 @@
     display: flex;
     flex-direction: column;
     border-radius: 0.75rem;
-    overflow: scroll;
+    overflow-y: scroll;
+}
+
+.modal::-webkit-scrollbar {
+    width: 0.4rem;
+}
+
+.modal::-webkit-scrollbar-thumb {
+    background: #141318;;
+    border-radius: 1.5rem;
+}
+
+.modal::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 1.5rem;
 }
 
 .h2{
@@ -36,4 +50,15 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.btn {
+    position: fixed;
+    top: 25%;
+    left: 92%;
+    z-index: 9;
+    background: #FFFFFF;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.4rem 0.5rem;
 }
