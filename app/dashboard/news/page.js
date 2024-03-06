@@ -3,7 +3,7 @@ import EditingForm from "@/components/News/EditingForm/EditingForm";
 import NewsBlock from "@/components/News/NewsBlock";
 import { GetNews } from "@/app/lib/GetNews";
 
-const News = async ({params, searchParams}) => {
+const News = async ({searchParams}) => {
 
     const PAGE_SIZE = 4;
 
@@ -19,7 +19,7 @@ const News = async ({params, searchParams}) => {
     return (
         <div className={css.main_div}>
             <EditingForm />
-            <NewsBlock data={data} params={params} searchParams={searchParams}/>
+            <NewsBlock data={data} searchParams={searchParams}/>
         </div>
     );
 };

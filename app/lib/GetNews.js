@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import prisma from "@/utils/prismadb";
-import {revalidatePath} from "next/cache";
+import { revalidatePath } from "next/cache";
 
 export const GetNews = async ( take, skip ) => {
 
@@ -27,6 +27,9 @@ export const GetNews = async ( take, skip ) => {
         const news = await prisma.news.findMany({
                 take,
                 skip,
+                orderBy: {
+                    id: 'desc',
+                },
             },)
 
         const totalNews = await prisma.news.count()
