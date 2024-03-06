@@ -5,6 +5,8 @@ import { useSearchParams } from 'next/navigation';
 const Pagination = ({ totalPages , hashNextPage, params, searchParams}) => {
 
     console.log('searchParams--->', searchParams, 'searchParams type---->', typeof searchParams)
+    console.log('searchParams.page--->', +searchParams.page, 'searchParams.page type---->', typeof +searchParams.page)
+
     console.log('params--->', params, 'params type---->', typeof params)
     console.log('totalPages---->',totalPages);
 
@@ -48,7 +50,11 @@ const Pagination = ({ totalPages , hashNextPage, params, searchParams}) => {
         <div className={css.main}>
             <Link
                 className={(+searchParams?.page ||  1) ? css.btn_inactive : css.btn_active}
-                href={`?page=${(!searchParams.page ? 1 : 2)}`}>
+                href={`?page=${(!searchParams.page ? 1 : 
+                    (+searchParams.page === 1) ? 1 :
+                        (+searchParams.page > 1) ? +searchParams.page - 1 : null
+                
+                )}`}>
                 Previous
             </Link>
 
