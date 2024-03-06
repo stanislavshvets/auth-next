@@ -1,0 +1,54 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.4rem;
+}
+
+.btn_active{
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: #FFFFFF;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    cursor: pointer;
+}
+
+.btn_active:hover{
+    background: gray;
+}
+
+.btn_inactive {
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: #212121;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    color: white;
+}
+
+.nav_bar{
+    display: flex;
+}
+
+.nav_active_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    margin: 0 0.5rem;
+    background: #FFFFFF;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav_inactive_btn {
+    background: #212121;
+    color: white;
+    cursor: alias;
+}
+
+

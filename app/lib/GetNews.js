@@ -1,19 +1,46 @@
 import { getServerSession } from "next-auth";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import prisma from "@/utils/prismadb";
+import {revalidatePath} from "next/cache";
 
-export const GetNews = async () => {
+export const GetNews = async ( take, skip ) => {
 
     try {
         // const session = await getServerSession(options);
         //
         // if(!session) new Error('No session')
 
-        const news = await prisma.news.findMany()
 
-        console.log('Data fetch completed after 3 seconds.');
+        // const [news, totalNews] = await prisma.$transaction([
+        //     prisma.news.findMany({
+        //         skip: 0,
+        //         take: 4,
+        //         orderBy: {
+        //             id: 'desc',
+        //         },
+        //     },),
+        //     prisma.news.count(),
+        // ])
+        //
+        // return [news, totalNews]
 
-        return news
+        const news = await prisma.news.findMany({
+                take,
+                skip,
+            },)
+
+        const totalNews = await prisma.news.count()
+
+        revalidatePath('/dashboard/news/')
+
+        return {
+            data: news,
+            metadata : {
+                hashNextPage: skip + take < totalNews,
+                totalPages: Math.ceil(totalNews / take)
+            }
+        }
+
     } catch (error) {
         console.error('Database Error:', error);
         // throw new Error('Failed to fetch revenue data.');

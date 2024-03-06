@@ -3,14 +3,23 @@ import EditingForm from "@/components/News/EditingForm/EditingForm";
 import NewsBlock from "@/components/News/NewsBlock";
 import { GetNews } from "@/app/lib/GetNews";
 
-const News = async () => {
+const News = async ({params, searchParams}) => {
 
-    const data = await GetNews()
+    const PAGE_SIZE = 4;
+
+    const pageNumber = Number(searchParams?.page || 1); // Get the page number. Default to 1 if not provided.
+
+    const take = PAGE_SIZE;
+    const skip = (pageNumber - 1) * take;
+
+    const data = await GetNews(take,skip)
+
+    console.log("DATA IN PAGE---->", data);
 
     return (
         <div className={css.main_div}>
             <EditingForm />
-            <NewsBlock data={data}/>
+            <NewsBlock data={data} params={params} searchParams={searchParams}/>
         </div>
     );
 };

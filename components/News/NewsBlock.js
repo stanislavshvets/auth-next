@@ -1,16 +1,21 @@
 import css from '@/styles/DashboardPages/news/newsblock.module.css'
 import ANews from "@/components/News/ANews";
+import Pagination from "@/components/News/Pagination";
 
-const NewsBlock = async ({data}) => {
+
+const NewsBlock = async ({data, params, searchParams}) => {
 
     console.log("FROM NEWSBLOCK---->",data);
 
     return (
         <div className={css.mainblock}>
             
-                {data.map((item) =>
+                {data.data.map((item) =>
                     <ANews key={item.id} title={item.title} body={item.body} date={item.date.toString()} /> )}
-
+                <Pagination totalPages={data.metadata.totalPages}
+                            hashNextPage={data.metadata.hashNextPage}
+                            params={params}
+                            searchParams={searchParams}/>
         </div>
     );
 };
