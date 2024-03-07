@@ -1,3 +1,8 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .main_block {
     width: 85%;
     margin-top: 0.8rem;
@@ -18,4 +23,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.btns_block {
+    margin: 1rem 0 0 0.3rem;
 }

@@ -22,7 +22,10 @@ export const GetNews = async ( take, skip ) => {
         //     prisma.news.count(),
         // ])
         //
-        // return [news, totalNews]
+        //
+        // console.log("NEWS---->",news)
+        // console.log("totalNews---->",totalNews)
+
 
         const news = await prisma.news.findMany({
                 take,
@@ -46,6 +49,5 @@ export const GetNews = async ( take, skip ) => {
 
     } catch (error) {
         console.error('Database Error:', error);
-        // throw new Error('Failed to fetch revenue data.');
     }
 }

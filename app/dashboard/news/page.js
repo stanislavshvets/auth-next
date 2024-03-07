@@ -5,7 +5,7 @@ import { GetNews } from "@/app/lib/GetNews";
 
 const News = async ({searchParams}) => {
 
-    const PAGE_SIZE = 4;
+    const PAGE_SIZE = 5;
 
     const pageNumber = Number(searchParams?.page || 1); // Get the page number. Default to 1 if not provided.
 

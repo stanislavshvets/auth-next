@@ -10,9 +10,6 @@ const EditingForm = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
 
-    console.log("TITLE---->", title)
-    console.log("BODY---->", body)
-
     const postData = async (title, body) => {
 
         try{
@@ -30,7 +27,6 @@ const EditingForm = () => {
 
     return (
         <div className={css.mainblock}>
-            <h1>FORM</h1>
             <TextEditor title={title} body={body} setTitle={setTitle} setBody={setBody} postData={postData}/>
         </div>
     );

@@ -12,3 +12,4 @@ export * as notifications from './notifications.svg';
 export * as logout from './logout.svg';
 export * as bin from './bin.svg';
 export * as edit from './edit.svg';
+export * as cancel from './cancel.svg';

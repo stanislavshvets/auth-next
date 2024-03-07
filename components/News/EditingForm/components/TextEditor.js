@@ -5,29 +5,16 @@ import ReactQuill from 'react-quill'
 import 'quill/dist/quill.snow.css'
 import css from '@/styles/DashboardPages/news/texteditor.module.css'
 import PreviewModal from "@/components/News/EditingForm/components/PreviewModal";
-import dynamic from "next/dynamic";
+
 
 const TextEditor = ({title, body, setTitle, setBody, postData}) => {
-
-    // const ReactQuill =  dynamic(
-    //     () => import('react-quill'));
-
 
     const [openModal, setOpenModal] = useState(false)
 
     let modules = {
         toolbar: [
-            [{ size: ["small", false, "large", "huge"] }],
-            ["bold", "italic", "underline", "strike", "blockquote"],
+            ["bold", "italic", "underline", "strike"],
             [{ list: "ordered" }, { list: "bullet" }],
-            ["link", "image"],
-            [
-                { list: "ordered" },
-                { list: "bullet" },
-                { indent: "-1" },
-                { indent: "+1" },
-                { align: [] }
-            ],
             [{ "color":
                     ["#000000", "#e60000", "#ff9900", "#ffff00", "#008a00", "#0066cc", "#9933ff",
                         "#ffffff", "#facccc", "#ffebcc", "#ffffcc", "#cce8cc", "#cce0f5", "#ebd6ff",
@@ -56,27 +43,48 @@ const TextEditor = ({title, body, setTitle, setBody, postData}) => {
     return (
         <>
             {openModal && <PreviewModal title={title} body={body} closeModal={setOpenModal}/>}
-        <div >
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                <h2 style={{ textAlign: "start", fontSize: "1rem", marginBottom: "0.6rem"}}>News body:</h2>
+        <div>
+            <div className={css.title_wrapper}>
+                <h2 className={css.h2}>News title:</h2>
                 <textarea className={css.title_area}
                           onChange={GetTitle}
                 ></textarea>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", marginTop: "1rem"}}>
-            <h2 style={{ textAlign: "start", fontSize: "1rem", marginBottom: "0.6rem"}}>News body:</h2>
+            <div className={css.body_wrapper}>
+            <h2 className={css.h2}>News body:</h2>
                 <ReactQuill
-                    theme="snow"
                     modules={modules}
                     formats={formats}
-                    placeholder={'enter yor text...'}
                     onChange={GetBody}
+                    className={css.body_area}
                 >
                 </ReactQuill>
             </div>
         </div>
-            <button onClick={() => setOpenModal(true)}>Show Preview</button>
-            <button onClick={() => postData(title, body)}>Post Data</button>
+            <div className={css.btns_container}>
+                <button onClick={() => setOpenModal(prev => !prev)} className={css.preview_btn}>
+
+                    <span className={css.text}>Show Preview</span>
+                    <span className={css.circle}></span>
+
+                </button>
+                <button className={css.accept_btn} onClick={() => postData(title, body)}>
+                    <svg viewBox="0 0 24 24" className={css.arr2} xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076
+                            18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                        ></path>
+                    </svg>
+                    <span className={css.text}>Make Post</span>
+                    <span className={css.circle}></span>
+                    <svg viewBox="0 0 24 24" className={css.arr1} xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076
+                            18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
         </>
     );
 
