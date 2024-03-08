@@ -1,7 +1,15 @@
 import css from '@/styles/DashboardPages/news/anews.module.css'
 import { Remarkable } from 'remarkable';
-import UpdateButton from "@/components/News/UpdateNews/UpdateButton";
-import DelButton from "@/components/News/DelNews/DelButton";
+import dynamic from "next/dynamic";
+
+const UpdateButton = dynamic(
+    () => import("@/components/News/UpdateNews/UpdateButton"), {
+    ssr: false
+})
+const DelButton = dynamic(
+    () => import("@/components/News/DelNews/DelButton"), {
+    ssr: false
+})
 
 const md = new Remarkable({
     html: true,
@@ -14,7 +22,7 @@ function renderMarkdownToHTML(markdown) {
     return {__html: renderedHTML};
 }
 
-const ANews = ({title, body, date}) => {
+const ANews = async ({title, body, date}) => {
 
     const markup = renderMarkdownToHTML(body);
 

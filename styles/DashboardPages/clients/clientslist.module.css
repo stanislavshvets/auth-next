@@ -30,6 +30,14 @@
     font-size: 1rem;
 }
 
+.error_block {
+    width: 100%;
+    height: 52vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .clients_list {
     height: 52vh;
     margin: 0.5rem 0;

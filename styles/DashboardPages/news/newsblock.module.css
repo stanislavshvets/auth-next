@@ -11,6 +11,15 @@
     align-items: center;
 }
 
+.loading {
+    width: 100%;
+    min-height: 81vh;
+    max-height: 81vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .news_wrapper {
     min-height: 81vh;
     max-height: 81vh;
@@ -30,4 +39,16 @@
 .news_wrapper::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey;
     border-radius: 1.5rem;
+}
+
+.error_block {
+    min-height: 81vh;
+    max-height: 81vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no_data  {
+    color: #F23D3D;
 }

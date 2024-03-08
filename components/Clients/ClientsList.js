@@ -1,7 +1,10 @@
 import css from "@/styles/DashboardPages/clients/clientslist.module.css"
 import Client from "@/components/Clients/Client";
+import { GetClients } from "@/app/lib/GetClients";
 
-const ClientsList = async ({data}) => {
+const ClientsList = async () => {
+
+    const data = await GetClients()
 
     return (
         <>
@@ -17,8 +20,8 @@ const ClientsList = async ({data}) => {
                     <p>EMAIL</p>
                     <div></div>
                 </div>
-                <div className={css.clients_list}>
-                    {data.map((client) =>
+                <div className={ !data || data.data === [] ? css.error_block : css.clients_list}>
+                    { !data || data === [] ? <p style={{color: 'red' }}>NO DATA</p> : data.map((client) =>
                         <Client key={client.id} id={client.id} name={client.name} phone={client.phone} email={client.email} />)}
                 </div>
             </div>
