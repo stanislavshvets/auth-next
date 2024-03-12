@@ -1,0 +1,51 @@
+
+
+.conteiner {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.txt_conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2 {
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.p {
+    margin-top: 3%;
+    font-size: 1.5em;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+@media (max-width: 430px) {
+    .conteiner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 355px;
+    }
+
+    .h2 {
+        font-size: 1.5em;
+    }
+
+    .p {
+        font-size: 1.3em;
+    }
+
+}

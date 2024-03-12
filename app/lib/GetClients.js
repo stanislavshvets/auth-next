@@ -4,6 +4,8 @@ import prisma from "@/utils/prismadb";
 
 export const GetClients = async () => {
 
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
     try {
         // const session = await getServerSession(options);
         //

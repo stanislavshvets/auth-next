@@ -30,7 +30,8 @@ const Pagination = ({ totalPages , hashNextPage, searchParams}) => {
                 href={`?page=${(!searchParams.page || totalPages > 1 ? 2 :
                     !searchParams.page || totalPages === 0 ? 1 :
                         (+searchParams.page >= totalPages) ? totalPages :
-                            (+searchParams.page >= 1 && +searchParams.page !== totalPages ) ? +searchParams.page + 1 : 1
+                            (+searchParams.page >= 1 && +searchParams.page !== totalPages ) ? 
+                                +searchParams.page + 1 : 1
                 )}`}>
                 Next
             </Link>

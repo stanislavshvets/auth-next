@@ -1,17 +1,18 @@
 import Form from "@/components/Clients/Form/Form";
+import LoadingComp from "@/components/Loading/LoadingComp";
+import { Suspense } from "react";
 import ClientsList from "@/components/Clients/ClientsList";
 import css from "@/styles/DashboardPages/clients/clients.module.css";
-import { GetClients } from "@/app/lib/GetClients";
 
 
 const Clients = async () => {
 
-    const data = await GetClients()
-
     return (
         <div className={css.main_div}>
             <Form />
-            <ClientsList data={data}/>
+            <Suspense fallback={<div className={css.loading}><LoadingComp/></div>}>
+                <ClientsList />
+            </Suspense>
         </div>
     );
 };

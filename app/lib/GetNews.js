@@ -5,6 +5,8 @@ import { revalidatePath } from "next/cache";
 
 export const GetNews = async ( take, skip ) => {
 
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
     try {
         // const session = await getServerSession(options);
         //
@@ -25,6 +27,7 @@ export const GetNews = async ( take, skip ) => {
         //
         // console.log("NEWS---->",news)
         // console.log("totalNews---->",totalNews)
+
 
 
         const news = await prisma.news.findMany({

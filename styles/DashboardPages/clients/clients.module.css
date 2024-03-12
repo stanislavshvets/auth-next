@@ -6,3 +6,11 @@
     min-height: 100vh;
     max-height: 100vh;
 }
+
+.loading {
+    width: 90%;
+    height: 63vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
