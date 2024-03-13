@@ -13,7 +13,12 @@ export async function POST(request){
 
         const { name, phone, email } = body
 
-        const existingUser = await prisma.user.findFirst({
+        if (!phone || !email) {
+            return NextResponse.json({ "message": "Phone and email are required" }, { status: 400 });
+        }
+
+
+        const existingUser = await prisma.user.findMany({
             where: {
                 OR: [
                     { phone: phone },
@@ -27,15 +32,22 @@ export async function POST(request){
             }
         });
 
-        console.log("RESPONSE--->", existingUser)
+        let errorFound = false;
+        let errorMessage = ""
 
-        if (existingUser) {
-            let errorMessage = "";
-            if (existingUser.phone === phone) {
-                errorMessage = `User id: ${existingUser.id}, with this phone, already exists`;
-            } else if (existingUser.email === email) {
-                errorMessage = `User id: ${existingUser.id}, with this email, already exists`;
+        existingUser.forEach(user => {
+            if (user.id !== userid) {
+                if (user.phone === phone) {
+                    errorMessage = `User id: ${user.id}, with this phone, already exists`;
+                    errorFound = true;
+                } else if (user.email === email) {
+                    errorMessage = `User id: ${user.id}, with this email, already exists`;
+                    errorFound = true;
+                }
             }
+        });
+
+        if (errorFound) {
             return NextResponse.json({ "message": errorMessage }, { status: 403 });
         }
 
