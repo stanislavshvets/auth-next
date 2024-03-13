@@ -1,4 +1,6 @@
 import GoogleProvider from "next-auth/providers/google";
+import Credentials from "next-auth/providers/credentials";
+import {request} from "axios";
 
 export const options = {
     // Configure one or more authentication providers
@@ -22,6 +24,21 @@ export const options = {
             },
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        }),
+        Credentials({
+            credentials: {
+                login: { label: 'login', type: 'login', required: true},
+                password: { label: 'password', type: 'password', required: true},
+            },
+            async authorize (credentials){
+                if(!credentials?.login || !credentials.password) return null;
+
+                // DB request
+
+                
+
+                return null
+            }
         })
         // ...add more providers here
     ],

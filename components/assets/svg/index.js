@@ -13,3 +13,9 @@ export * as logout from './logout.svg';
 export * as bin from './bin.svg';
 export * as edit from './edit.svg';
 export * as cancel from './cancel.svg';
+export * as admin from './admin.svg';
+export * as editor from './copywriter.svg';
+export * as manager from './manager.svg';
+export * as lock from './lock.svg';
+export * as unlock from './unlock.svg';
+
