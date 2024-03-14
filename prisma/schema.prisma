@@ -17,6 +17,13 @@ model User {
   email String?
 }
 
+model Admin {
+  id       Int    @id @default(autoincrement())
+  login    String
+  password String
+  role     String
+}
+
 model News {
   id    Int      @id @default(autoincrement())
   title String

@@ -18,4 +18,6 @@ export * as editor from './copywriter.svg';
 export * as manager from './manager.svg';
 export * as lock from './lock.svg';
 export * as unlock from './unlock.svg';
+export * as cloud from './cloud.svg';
+
 

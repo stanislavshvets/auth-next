@@ -181,7 +181,7 @@
 
 .button {
     margin-top: 0.8rem;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     background: #212121;
     color: white;
     fill: rgb(155, 153, 153);
@@ -200,7 +200,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.button svg {
+.button img {
     display: block;
     transform-origin: center center;
     transition: transform 0.3s ease-in-out;
@@ -215,8 +215,8 @@
     transition: 0.5s linear;
 }
 
-.button:hover svg {
-    transform: translateX(1.2em) scale(1.1);
+.button:hover img {
+    transform: translateX(1.05em) scale(1.1);
     fill: #fff;
 }
 
@@ -228,3 +228,4 @@
 .button:active {
     transform: scale(0.95);
 }
+
