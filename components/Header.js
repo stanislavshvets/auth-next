@@ -15,7 +15,7 @@ const Header = async () => {
             {sessiom ? (
                 <Link href={'/api/auth/signout?callbackUrl=/'} className={css.link}>LOGOUT</Link>
             ) : (
-                <Link href={'/api/auth/signin'} className={css.link}>LOGIN</Link>
+                <Link href={'/signin'} className={css.link}>LOGIN</Link>
             )}
 
             <Link href={'/dashboard'} className={css.link}>DASHBOARD</Link>
