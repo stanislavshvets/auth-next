@@ -5,8 +5,6 @@ import {NextResponse} from "next/server";
 
 export default withAuth(
     function middleware(request){
-        console.log("request.nextUrl.pathname---->",request.nextUrl.pathname)
-        console.log("request.nextauth.token---->",request.nextauth.token)
 
         const { pathname } = request.nextUrl;
         const { role } = request.nextauth.token;

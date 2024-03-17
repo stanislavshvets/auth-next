@@ -34,7 +34,6 @@ const AddAdminForm = () => {
                 password,
                 role
             }).then((res) => {
-                console.log("RESPONSE---->" ,res)
                 setNewAdmin(res.data.data)
             })
             reset()
@@ -42,8 +41,6 @@ const AddAdminForm = () => {
             console.log(error);
         }
     }
-
-    console.log("newAdmin---->" ,newAdmin);
 
     // const strengthLabels = ["weak", "medium", "strong"];
     // const getStrength = (password = watch("password")) => {
@@ -75,12 +72,6 @@ const AddAdminForm = () => {
     //
     //     setStrength(strengthLabels[strengthIndicator] ?? "");
     // };
-
-
-
-
-    // console.log("strength---->" ,strength);
-
 
     return (
         <div className={css.mainblock}>

@@ -21,9 +21,6 @@ const PreviewModal = ({title, body, closeModal}) => {
 
     const markup = renderMarkdownToHTML(body);
 
-    console.log("title---->",title);
-    console.log("markup---->",markup)
-
     return (
         <>
             <div className={css.background} ></div>

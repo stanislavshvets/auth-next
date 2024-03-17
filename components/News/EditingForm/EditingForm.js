@@ -20,7 +20,7 @@ const EditingForm = () => {
                 console.log("RESPONSE---->" ,res)
             })
         }catch (error){
-            console.log("ERROR---->" ,error)
+
         }
     }
 

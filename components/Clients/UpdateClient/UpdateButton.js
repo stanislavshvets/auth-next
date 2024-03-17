@@ -30,10 +30,8 @@ const UpdateButton = ({id, name, phone, email}) => {
                     setUpdatedClient(res.data.data)
                     setModalOpen(false)
                     setModalConfirmOpen(true)
-                    console.log("RespOnse---->", res)
                 })
         }catch (error){
-            console.log('ERROR--->',error);
             setError(error)
             setModalOpen(false)
             setErrorOpen(true)

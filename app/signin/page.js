@@ -35,7 +35,6 @@ const Page = () => {
 
         if(res && !res.error) {
             router.push('/dashboard')
-            console.log("RESPONSE FROM if SIGNIN---->" ,res)
         }else {
             console.log("RESPONSE FROM if error---->" ,res)
         }

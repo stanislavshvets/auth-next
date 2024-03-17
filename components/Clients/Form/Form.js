@@ -31,7 +31,6 @@ const Form = () => {
                 email
             }).then((res) => {
                 (res.status === 201) ? setModalOpen(true) : null
-                console.log("RESPONSE---->" ,res)
                 setNewClient(res.data.data)
             })
             reset()
@@ -40,8 +39,6 @@ const Form = () => {
             setError(error)
         }
     }
-
-    console.log("newClient---->" ,newClient);
 
     return (
         <section className={css.main}>

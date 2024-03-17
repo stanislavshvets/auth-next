@@ -7,8 +7,6 @@ const DashboardLayout = async ({ children }) => {
 
     const session = await getServerSession(options);
 
-    console.log('session in layout---->' , session);
-
     const { user: {name, email, image, role} } = session
 
     return (

@@ -17,8 +17,6 @@ export const SigninAdmin = async ( login ) => {
             }
         },)
 
-        console.log("DATA---->", admin)
-
         return { data: admin }
 
     } catch (error) {
