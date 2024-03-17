@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import pages from "@/components/Sidebar/pages";
 import Logo from "@/components/Sidebar/components/Logo";
 import Customer from "@/components/Sidebar/components/Customer";
@@ -12,32 +12,49 @@ import css from '@/styles/sidebar/sidebar.module.css'
 
 const Sidebar = (props) => {
 
-    const {img, mail, name} = props
+    const {img, mail, name, role} = props
 
     const [ModalClose, setModalClose] = useState(true)
     const [message, setMessage] = useState('');
+    const [filteredPages, setFilteredPages] = useState(pages);
 
-    const filtered = pages.filter(page => {
+    useEffect(() => {
+        if (role === 'manager') {
+            setFilteredPages(pages.filter(page => page.name !== 'Settings'));
+        } else if (role === 'editor') {
+            setFilteredPages(pages.filter(page => page.name !== 'Clients' && page.name !== 'Settings' && page.name !== 'Notifications'));
+        } else {
+            setFilteredPages(pages);
+        }
+    }, [role]);
+
+    
+    const filtered = filteredPages.filter(page => {
         return page.name.toLowerCase().startsWith(message.toLowerCase())
     })
 
     return (
-        <aside className={`${css.aside} ${ModalClose ? css.close : css.open}`}>
-            <nav className={css.sidebar}>
-                <div className={css.sidebar_top_wrapper}>
-                    {ModalClose ?
-                        <Logo link={"/dashboard"} img={next_logo_mini} width={30} height={30}/>
-                        :
-                        <Logo link={"/dashboard"} img={next_logo} width={140} height={100}/>
-                    }
-                    <Button ModalClose={ModalClose} setModalClose={setModalClose}/>
-                </div>
-                <Search setModalClose={setModalClose} ModalClose={ModalClose} message={message} setMessage={setMessage}/>
-                <LinkList setModalClose={setModalClose} pages={filtered} ModalClose={ModalClose}/>
-                <Customer img={img} mail={mail} name={name} ModalClose={ModalClose}/>
-            </nav>
-        </aside>
+
+            <aside className={`${css.aside} ${ModalClose ? css.close : css.open}`}>
+                <nav className={css.sidebar}>
+                    <div className={css.sidebar_top_wrapper}>
+                        {ModalClose ?
+                            <Logo link={"/dashboard"} img={next_logo_mini} width={30} height={30}/>
+                            :
+                            <Logo link={"/dashboard"} img={next_logo} width={140} height={100}/>
+                        }
+                        <Button ModalClose={ModalClose} setModalClose={setModalClose}/>
+                    </div>
+                    <Search setModalClose={setModalClose} ModalClose={ModalClose} message={message} setMessage={setMessage}/>
+                    <LinkList setModalClose={setModalClose} pages={filtered} ModalClose={ModalClose}/>
+                    <Customer img={img} mail={mail} name={name} ModalClose={ModalClose}/>
+                </nav>
+            </aside>
+
     );
 };
 
 export default Sidebar;
+
+
+

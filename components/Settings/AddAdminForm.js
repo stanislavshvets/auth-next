@@ -118,21 +118,21 @@ const AddAdminForm = () => {
 		        	        </span>
                         </label>
                         <label>
-                            <input className={css.radio} type="radio" value={"editor"} placeholder={"editor"} {...register("role")} />
-                            <span className={css.radioTile}>
-		        		        <span className={css.radioIcon}>
-		        		        	<Image src={editor} alt={'editor'} width={25} height={25} />
-		        		        </span>
-		        		        <span className={css.radioLabel}>Editor</span>
-		        	        </span>
-                        </label>
-                        <label>
                             <input className={css.radio} type="radio" value={"manager"} placeholder={"manager"} {...register("role")} />
                             <span className={css.radioTile}>
 		        		        <span className={css.radioIcon}>
 		        		        	<Image src={manager} alt={'manager'} width={25} height={25} />
 		        		        </span>
 		        		        <span className={css.radioLabel}>Manager</span>
+		        	        </span>
+                        </label>
+                        <label>
+                            <input className={css.radio} type="radio" value={"editor"} placeholder={"editor"} {...register("role")} />
+                            <span className={css.radioTile}>
+		        		        <span className={css.radioIcon}>
+		        		        	<Image src={editor} alt={'editor'} width={25} height={25} />
+		        		        </span>
+		        		        <span className={css.radioLabel}>Editor</span>
 		        	        </span>
                         </label>
                     </div>

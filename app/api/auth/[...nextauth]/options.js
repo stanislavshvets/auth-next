@@ -48,7 +48,7 @@ export const options = {
                         const { password, ...user } = currentUser.data;
                         return  {
                             name: user.login,
-                            email: user.login,
+                            email: user.role,
                             role: user.role
                         }
                     } else {
